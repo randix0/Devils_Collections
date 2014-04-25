@@ -21,27 +21,43 @@
         </resources>
         <models>
             <devils_collections>
-                <class>Devils_Details_Model</class>
-                <!--<resourceModel>devils_details_resource</resourceModel>-->
+                <class>Devils_Collections_Model</class>
+                <resourceModel>devils_collections_resource</resourceModel>
             </devils_collections>
-            <!--
             <devils_collections_resource>
-                <class>Devils_Details_Model_Resource</class>
+                <class>Devils_Collections_Model_Resource</class>
                 <entities>
-                    <details_source>
+                    <collections_source>
                         <table>devils_collections_entity</table>
-                    </details_source>
+                    </collections_source>
                 </entities>
             </devils_collections_resource>
-            -->
         </models>
         <helpers>
             <devils_collections>
                 <class>Devils_Collections_Helper</class>
             </devils_collections>
         </helpers>
+        <rewrite>
+            <collections_url>
+                <from><![CDATA[/collections\/(\d+)/]]></from>
+                <to><![CDATA[collections/index/view/id/$1]]></to>
+            </collections_url>
+        </rewrite>
     </global>
     <frontend>
+        <routers>
+            <devils_collections>
+                <use>standard</use>
+                <args>
+                    <module>Devils_Collections</module>
+                    <frontName>collections</frontName>
+                </args>
+            </devils_collections>
+        </routers>
+        <default>
+            <router>devils_collections</router>
+        </default>
         <layout>
             <updates>
                 <devils_collections>
@@ -50,4 +66,24 @@
             </updates>
         </layout>
     </frontend>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Devils_Collections after="Mage_Adminhtml">Devils_Collections_Adminhtml</Devils_Collections>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <devils_collections>
+                    <file>devils/collections.xml</file>
+                </devils_collections>
+            </updates>
+        </layout>
+    </adminhtml>
 </config>

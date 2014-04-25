@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_collections_list>
+        <reference name="content">
+            <block type="devils_collections/adminhtml_collections" name="collections"/>
+        </reference>
+    </adminhtml_collections_list>
+
+    <adminhtml_collections_grid>
+        <block type="devils_collections/adminhtml_collections_grid" name="collections-ajax" output="toHtml"/>
+    </adminhtml_collections_grid>
+
+    <adminhtml_collections_edit>
+        <reference name="content">
+            <block type="devils_collections/adminhtml_collections_edit" name="collections-edit"/>
+        </reference>
+    </adminhtml_collections_edit>
+</layout>
