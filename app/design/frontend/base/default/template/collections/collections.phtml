@@ -1,2 +1,6 @@
-<h1>ryba!!!!</h1>
-
+<?php $collections = $this->getCollections(); ?>
+<nav class="devils-nav-collections">
+    <?php foreach($collections as $collection): ?>
+    <a class="devils-nav-collections-item"><?php echo $collection->getName();?></a>
+    <?php endforeach; ?>
+</nav>
